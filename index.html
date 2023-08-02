@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            background-color: black;
+            font-family: Arial, sans-serif;
+        }
+        
+        #calculator {
+            background-color: darkgoldenrod;
+            width: 250px;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        
+        input[type="button"] {
+            background-color: rgb(222, 20, 20);
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            margin: 5px;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            height: 40px;
+            font-size: 18px;
+            text-align: right;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="calculator">
+        <input type="text" id="result" readonly>
+        <input type="button" value="1" onclick="appendToInput('1')">
+        <input type="button" value="2" onclick="appendToInput('2')">
+        <input type="button" value="3" onclick="appendToInput('3')">
+        <input type="button" value="+" onclick="appendToInput('+')">
+        <input type="button" value="4" onclick="appendToInput('4')">
+        <input type="button" value="5" onclick="appendToInput('5')">
+        <input type="button" value="6" onclick="appendToInput('6')">
+        <input type="button" value="-" onclick="appendToInput('-')">
+        <input type="button" value="7" onclick="appendToInput('7')">
+        <input type="button" value="8" onclick="appendToInput('8')">
+        <input type="button" value="9" onclick="appendToInput('9')">
+        <input type="button" value="*" onclick="appendToInput('*')">
+        <input type="button" value="0" onclick="appendToInput('0')">
+        <input type="button" value="." onclick="appendToInput('.')">
+        <input type="button" value="=" onclick="calculate()">
+        <input type="button" value="/" onclick="appendToInput('/')">
+        <input type="button" value="C" onclick="clearInput()">
+    </div>
+
+    <script>
+        function appendToInput(value) {
+            document.getElementById("result").value += value;
+        }
+
+        function calculate() {
+            try {
+                document.getElementById("result").value = eval(document.getElementById("result").value);
+            } catch (error) {
+                document.getElementById("result").value = "Error";
+            }
+        }
+
+        function clearInput() {
+            document.getElementById("result").value = "";
+        }
+    </script>
+</body>
+
+</html>
